@@ -24,6 +24,9 @@ public class LoginRegistController {
 	// Render - Register Page
 	@GetMapping("/register")
 	public String registerPage(HttpSession session,Model model) {
+		if ( session.getAttribute("logged_in") != null) {
+			return "redirect:/";
+		}
 		model.addAttribute("newCustomer", new Customer());
 		model.addAttribute("newLogin", new CustomerLogin());
 		return "registerPage.jsp";
@@ -51,19 +54,12 @@ public class LoginRegistController {
 	// Login
 	@PostMapping("/login")
 	public String loginUser(@Valid @ModelAttribute("newLogin") CustomerLogin customerLogin, BindingResult result, Model model,
-			HttpSession session,RedirectAttributes redirectAttributes) {
+			HttpSession session) {
 		// go to login process
 		customerServ.login(customerLogin, result);
 		if (result.hasErrors()) {
-//			String emailNotFound = result.getFieldError("email").getDefaultMessage();
-//			String InvalidPassword = result.getFieldError("password").getDefaultMessage();
-//			ArrayList<String> errors = new ArrayList<>();
-//			errors.add(emailNotFound);
-//			errors.add(InvalidPassword);
-//			redirectAttributes.addFlashAttribute("error", errors);
 			model.addAttribute("newCustomer", new Customer());
-//			return "registerPage.jsp";
-			return "redirect:/register";
+			return "registerPage.jsp";
 		} else {
 			Customer registeredCustomer = customerServ.findCustomerByEmail(customerLogin.getEmail());
 			session.setAttribute("customer_id", registeredCustomer.getId());
@@ -74,6 +70,6 @@ public class LoginRegistController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/register";
 	}
 }

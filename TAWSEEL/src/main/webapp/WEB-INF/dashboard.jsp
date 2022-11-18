@@ -11,7 +11,7 @@
 </head>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <body>
-
+<p><a href="/logout">Logout</a></p>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>

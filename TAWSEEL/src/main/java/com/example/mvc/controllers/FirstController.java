@@ -8,6 +8,7 @@ public class FirstController {
 
 	@GetMapping("/")
 	public String dashboardPage() {
+		
 		return "dashboard.jsp";
 	}
 }
