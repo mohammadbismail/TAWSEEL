@@ -18,11 +18,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.mvc.models.Customer;
 import com.example.mvc.models.CustomerLogin;
 import com.example.mvc.services.CustomerService;
+import com.example.mvc.validator.UserValidator;
 
 @Controller
 public class LoginRegistController {
 	@Autowired
 	CustomerService customerServ;
+	@Autowired
+	UserValidator userValidator;
 	
 	// Render - Register Page
 	@GetMapping("/registration")
@@ -38,12 +41,18 @@ public class LoginRegistController {
 	    }
 	  @PostMapping("/registration")
 	    public String registration(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model, HttpSession session) {
+		  userValidator.validate(customer, result);
 	        if (result.hasErrors()) {
 	            return "registerPage.jsp";
 	        }
+	        
 	        customerServ.saveWithUserRole(customer);
-	        return "redirect:/login";
+	       
+	       
+	        return "redirect:/";
 	    }
+	  
+	    
 	// Register 
 //	@PostMapping("/register")
 //	public String registerUser(@Valid @ModelAttribute("newCustomer") Customer customer, BindingResult result, Model model,
@@ -91,5 +100,11 @@ public class LoginRegistController {
 	        String username = principal.getName();
 	        model.addAttribute("currentUser", customerServ.findCustomerbyname(username));
 	        return "dashboard.jsp";
+	    }
+	  @RequestMapping("/admin")
+	    public String adminPage(Principal principal, Model model) {
+	        String username = principal.getName();
+	        model.addAttribute("currentUser", customerServ.findCustomerbyname(username));
+	        return "adminPage.jsp";
 	    }
 }

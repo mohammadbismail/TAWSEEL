@@ -32,15 +32,16 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	
+	@Size(min=3, message="Username must be greater than 3 characters")
 	private String username;
 	
-	
+	@Size(min=3, message="Username must be greater than 3 characters")
 	private String email;
 	
-
+	@Min(8)
+	
     private Integer number;
-
+	 @Size(min=5, message="Password must be greater than 5 characters")
     private String password;
 	
 	@Transient

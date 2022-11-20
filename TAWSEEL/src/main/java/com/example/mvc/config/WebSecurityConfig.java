@@ -17,24 +17,44 @@ public class WebSecurityConfig {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	@Bean
-	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-		
-		http.
-	        authorizeRequests()
-	            .antMatchers("/css/**", "/js/**", "/registration").permitAll()
-	            .anyRequest().authenticated()
-	            .and()
-	        .formLogin()
-	            .loginPage("/login")
-	            .permitAll()
-	            .and()
-	        .logout()
-	            .permitAll();
-		
-		return http.build();
-	}
+//	
+//	@Bean
+//	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+//		
+//		http.
+//	        authorizeRequests()
+//	            .antMatchers("/css/**", "/js/**", "/registration").permitAll()
+//	            .anyRequest().authenticated()
+//	            .and()
+//	        .formLogin()
+//	            .loginPage("/login")
+////	            .defaultSuccessUrl("/", true)
+//	            .permitAll()
+//	            .and()
+//	        .logout()
+//	            .permitAll();
+//		
+//		return http.build();
+//	}
+	   @Bean
+		protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+			
+			http.
+		        authorizeRequests()
+		            .antMatchers("/css/**", "/js/**", "/registration").permitAll()
+		            .antMatchers("/admin/**").access("hasRole('ADMIN')")    // NEW
+		            .anyRequest().authenticated()
+		            .and()
+		        .formLogin()
+		            .loginPage("/login")
+		            .defaultSuccessUrl("/", true)
+		            .permitAll()
+		            .and()
+		        .logout()
+		            .permitAll();
+			
+			return http.build();
+		}
 	
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
