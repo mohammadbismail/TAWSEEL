@@ -11,5 +11,6 @@ import com.example.mvc.models.Customer;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer,Long> {
 	List<Customer> findAll();
-	Optional<Customer> findByEmail(String email);
+	Customer findByEmail(String email);
+	Customer findByUsername(String user);
 }

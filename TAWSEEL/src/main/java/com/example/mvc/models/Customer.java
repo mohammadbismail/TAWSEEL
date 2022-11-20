@@ -2,12 +2,19 @@ package com.example.mvc.models;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -25,24 +32,20 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message="Name can't be null")
-	@Size(min=6,max=100,message="Name has to be 6 characters minimum")
+	
 	private String username;
 	
-	@NotNull(message="email can't be empty")
+	
 	private String email;
 	
-	@Min(value=10,message="please enter a valid number")
+
     private Integer number;
-	
-	@NotNull(message="password can't be null")
-	@Size(min=8,max=100,message="password must be at least 8 characters !")
+
     private String password;
 	
 	@Transient
-	@NotNull(message="password can't be null")
-	@Size(min=8,max=100,message="password must be at least 8 characters !")
-    private String confirm;
+	
+    private String passwordConfirmation;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
@@ -50,6 +53,17 @@ public class Customer {
 
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
 	private Date updatedAt;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Adress_id")
+	private Address address;
+	  @OneToMany(mappedBy="customer", fetch = FetchType.LAZY)
+	    private List<Order> order;
+	  @ManyToMany(fetch = FetchType.EAGER)
+	    @JoinTable(
+	        name = "customes_roles", 
+	        joinColumns = @JoinColumn(name = "customer_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "role_id"))
+	    private List<Role> roles;
 	
 	public Customer() {
  }
@@ -95,12 +109,14 @@ public class Customer {
 		this.password = password;
 	}
 
-	public String getConfirm() {
-		return confirm;
+
+
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
 	}
 
-	public void setConfirm(String confirm) {
-		this.confirm = confirm;
+	public void setPasswordConfirmation(String passwordConfirmation) {
+		this.passwordConfirmation = passwordConfirmation;
 	}
 
 	public Date getCreatedAt() {
@@ -117,6 +133,30 @@ public class Customer {
 	@PreUpdate
 	public void setUpdatedAt() {
 		this.updatedAt = new Date();
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 	

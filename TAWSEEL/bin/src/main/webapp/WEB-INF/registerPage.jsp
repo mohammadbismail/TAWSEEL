@@ -38,8 +38,8 @@
 	
 	<div class="wrapper">
 		<h2>Registration</h2>
-		<form:form action="/registration" method="post"
-			modelAttribute="customer">
+		<form:form action="/register" method="post"
+			modelAttribute="newCustomer">
 
 			<p class="error">
 				<form:errors path="username"></form:errors>
@@ -54,7 +54,7 @@
 				<form:errors path="password"></form:errors>
 			</p>
 			<p class="error">
-				<form:errors path="passwordConfirmation"></form:errors>
+				<form:errors path="confirm"></form:errors>
 			</p>
 
 			<div class="input-box my-1">
@@ -74,7 +74,7 @@
 					placeholder="Create password" required="required" />
 			</div>
 			<div class="input-box my-1">
-				<form:input type="password" path="passwordConfirmation"
+				<form:input type="password" path="confirm"
 					placeholder="Confirm password" required="required" />
 			</div>
 			<div class="policy">
@@ -105,7 +105,8 @@
 	</div>
 	<div class="wrapper">
 		<h2>Login</h2>
-		<form action="/login" method="post">
+		<form:form action="/login" method="post"
+			modelAttribute="newLogin">
 
 			<p class="error">
 				<form:errors path="email"></form:errors>
@@ -115,19 +116,17 @@
 			</p>
 
 			<div class="input-box my-1">
-				<input type="text" id="username" name="username" placeholder="Enter your email"
+				<form:input type="text" path="email" placeholder="Enter your email"
 					required="required" />
 			</div>
 			<div class="input-box my-1">
-				<input type="password" id="password" name="password"
+				<form:input type="password" path="password"
 					placeholder="Create password" required="required" />
 			</div>
 			<div class="input-box button">
-				  <input type="submit" value="Login!"/>
+				<input type="Submit" value="Register Now">
 			</div>
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        
-		</form>
+		</form:form>
 	</div>
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
