@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.mvc.models.Customer;
 import com.example.mvc.models.CustomerLogin;
@@ -72,4 +71,6 @@ public class LoginRegistController {
 		session.invalidate();
 		return "redirect:/register";
 	}
+
+
 }
