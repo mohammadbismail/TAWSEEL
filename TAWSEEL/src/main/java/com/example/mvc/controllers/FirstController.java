@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class FirstController {
 
-	@GetMapping("/")
-	public String dashboardPage() {
-		
-		return "dashboard.jsp";
-	}
+//	@GetMapping("/")
+//	public String dashboardPage() {
+//		
+//		return "dashboard.jsp";
+//	}
 }

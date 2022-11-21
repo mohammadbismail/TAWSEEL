@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.mvc.models.Customer;
 import com.example.mvc.models.CustomerLogin;
 import com.example.mvc.services.CustomerService;
+import com.example.mvc.services.RestaurantService;
 import com.example.mvc.validator.UserValidator;
 
 @Controller
@@ -26,6 +28,9 @@ public class LoginRegistController {
 	CustomerService customerServ;
 	@Autowired
 	UserValidator userValidator;
+	@Autowired
+	private RestaurantService resServ;
+	
 	
 	// Render - Register Page
 	@GetMapping("/registration")
@@ -94,11 +99,31 @@ public class LoginRegistController {
 		session.invalidate();
 		return "redirect:/register";
 	}
-	 @RequestMapping(value = {"/", "/home"})
-	    public String home(Principal principal, Model model) {
+	 @GetMapping("/")
+	    public String home(Principal principal, Model model,@RequestParam(value="FoodType",defaultValue ="0",required=false) String food,@RequestParam(value="City",defaultValue = "0",required=false) String city ) {
 	        // 1
 	        String username = principal.getName();
 	        model.addAttribute("currentUser", customerServ.findCustomerbyname(username));
+	        System.out.print("4");
+	        System.out.print(resServ.allRes());
+	        if((city.equals("0")&& food.equals("0"))) {
+//	  		  System.out.print(resServ.allRes());
+	  		  model.addAttribute("Res",resServ.allRes());
+	  		  
+	  		
+	  	  }
+	  	  else if(city.equals("0")) {
+	  		  model.addAttribute("Res",resServ.filterByfoodType(food)); 
+	  	  }
+	  	  else if(food.equals("0")) {
+	  		  model.addAttribute("Res",resServ.filterByCity(city)) ;
+	  	  }
+	  	 
+	  	  else {
+	  		  
+	  		  model.addAttribute("Res",resServ.filter(city, food)) ;
+	  		  
+	  	  }
 	        return "dashboard.jsp";
 	    }
 	  @RequestMapping("/admin")
