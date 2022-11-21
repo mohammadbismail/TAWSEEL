@@ -11,4 +11,9 @@ public class FirstController {
 		
 		return "dashboard.jsp";
 	}
+	
+	@GetMapping("/hi")
+	public String restuarant() {
+		return"menu2.jsp";
+	}
 }
