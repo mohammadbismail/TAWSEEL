@@ -9,6 +9,7 @@
 }
 
 * {
+    margin: 0;
     padding:0;
     outline: none;
     box-sizing: border-box;
@@ -19,7 +20,6 @@ body {
     width: 100%;
     height: auto;
     color: var(--darkBlack);
-    
 }
 
 p {
@@ -45,37 +45,60 @@ p {
     z-index: 2;
 }
 
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: var(--mainColor);
+    z-index: 1;
+    padding-top: 70px;
+}
+.sidebar-menu {
+    width: 100%;
+    text-align: center;
+    padding: 10px 5px;
+    color: var(--darkGrey);
+}
 
+.sidebar-menu > a {
+    text-decoration: none;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: var(--darkGrey);
+}
+.sidebar-menu:hover{
+    border-right: 2px solid var(--yellow);
+    color: var(--yellow);
+}
+.sidebar-menu:hover > a {
+    color: var(--yellow);
+}
 
 .dashboard {
     height: 100%;
     width: 100%;
     padding-right: 360px;
     padding-left: 60px;
-    margin-left: 10%
 }
 
 .dashboard-banner {
     width: 100%;
-    height: 448px;
+    height: 300px;
     position: relative;
     margin-top: 4rem;
     padding: 1rem;
     border-radius: 30px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
 }
 
 .dashboard-banner > img {
     width: 100%;
-    height: 99%;
-    object-fit:cover;
+    height: 100%;
+    object-fit: cover;
     border-radius: 30px;
 }
-
-
-
 
 .banner-promo {
     position: absolute;
@@ -162,11 +185,11 @@ p {
     width: 340px;
     min-height: 100%;
     position: fixed;
-    top: 0;
+    top: 70px;
     right: 0;
     padding: 0.5rem 1.5rem;
     background-color: var(--mainColor);
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 .dashboard-order > h3 {
@@ -332,7 +355,7 @@ nav ul{
     justify-content: space-around;
 }
 nav li a {
-    font-size: -5.5vw;
+    font-size: 1.5vw;
     text-decoration: none;
     color: white;
 }
@@ -344,6 +367,70 @@ nav {
     width: 100%;
     margin-top: 0%;
 }
+/* .menu-content{ */
+/* 	display: flex; */
+/* 	flex-direction: column; */
+/* 	align-items: center; */
+/* 	gap:20%; */
+	
+/* } */
+/* .foodinfo{ */
+/* 	display: flex; */
+/* 	flex-direction:column; */
+/* } */
 
+/* .foodprice{ */
+/* 	display:flex; */
+/* 	flex-direction:column; */
+/* } */
+.dashboard-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
+}
+.foodinfo{
+    display:flex;
+    flex-direction: column;
+}
 
+.menu-list img{
+    height:80px;
+    width:100px; 
+}
+.menu-list:hover img{
+    transform: scale(1.2);
+}
+.foodprice{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 65%;
+}
+ .menu-list .button {
+    color:white;
+    background-color: lightgreen;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    width: 45px;
+    height: 46px;
+     margin: 8px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+    
+    .menu-list img{
+    height: 116px;
+    width: 173px;
+    border-radius: 15px;
+}
+.menu-list p{
+        font-size: 20px;
+        font-family: cursive;
+        margin-left:10%
+    }
+    .menu-list:hover img{
+    transform: scale(1.2);
+}

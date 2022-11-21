@@ -22,8 +22,8 @@
     <label for="cart" class="label-cart"><span class="fas fa-shopping-cart"></span></label>
        <nav>
           <ul>
-              <li> <a href=""> All Restaurants</a></li>
-              <li><a href=""> Logout</a></li>
+              <li> <a href=""> Logout</a></li>
+              <li><a href=""> All Restaurants</a></li>
               <li><a href=""> User Name </a></li>
               <li> <a href=""> About Us</a></li>
           </ul>
@@ -57,7 +57,7 @@
     <!-- main dashboard -->
     <div class="dashboard">
         <div class="dashboard-banner">
-            <img src="images/images-banner.jpg">
+            <img src="images/images-banner.png">
             <div class="banner-promo">
                 <h1><span>Satisfy</span><br>
                 Your Hunger <br> With Our Service </h1>

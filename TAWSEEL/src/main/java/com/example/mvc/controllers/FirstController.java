@@ -11,4 +11,12 @@ public class FirstController {
 		
 		return "dashboard.jsp";
 	}
+	@GetMapping("/menu")
+	public String menuPage() {
+		
+		return "menu.jsp";
+	}
 }
+
+
+
