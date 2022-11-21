@@ -335,6 +335,7 @@ table {
     right: 0;
     padding: 0.5rem 1.5rem;
     background-color: var(--mainColor);
+    z-index:3;
     }
 
 .dashboard-order > h3 {

@@ -16,4 +16,8 @@ public class FirstController {
 	public String restuarant() {
 		return"menu2.jsp";
 	}
+	@GetMapping("/hola")
+	public String show() {
+		return "show.jsp";
+	}
 }
