@@ -40,11 +40,14 @@ public class Restaurant {
 
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
 	private Date updatedAt;
+	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Address_id")
 	private Address address;
+	
 	 @OneToMany(mappedBy="restaurant", fetch = FetchType.LAZY)
-	    private List<Item> item;
+	 private List<Item> items;
+	 
 	 private String image;
 	
 	
@@ -89,6 +92,8 @@ public class Restaurant {
 		this.updatedAt = new Date();
 	}
 
+	
+
 	public Address getAddress() {
 		return address;
 	}
@@ -97,12 +102,12 @@ public class Restaurant {
 		this.address = address;
 	}
 
-	public List<Item> getItem() {
-		return item;
+	public List<Item> getItems() {
+		return items;
 	}
 
-	public void setItem(List<Item> item) {
-		this.item = item;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	public String getImage() {

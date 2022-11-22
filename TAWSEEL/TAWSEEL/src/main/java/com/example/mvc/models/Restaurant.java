@@ -41,7 +41,7 @@ public class Restaurant {
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
 	private Date updatedAt;
 	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Address_id")
+	@JoinColumn(name="Adress_id")
 	private Address address;
 	 @OneToMany(mappedBy="restaurant", fetch = FetchType.LAZY)
 	    private List<Item> item;

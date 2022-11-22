@@ -3,53 +3,53 @@ package com.example.mvc.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
-
 
 @Entity
-@Table(name="restaurants")
-public class Restaurant {
+@Table(name="items")
+public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull(message="Name can't be null")
 	@Size(min=6,max=30,message="Name has to be 3 characters minimum")
 	private String name;
-	
-	@NotNull(message="food type can't be empty")
-	private String foodType;
-	@Column(updatable = false)
+	@Min(value=1,message="please enter a valid number")
+    private Integer price;
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
 	private Date createdAt;
 
 	@DateTimeFormat(pattern = "yyyy-MM-DD','HH:mm")
 	private Date updatedAt;
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Address_id")
-	private Address address;
-	 @OneToMany(mappedBy="restaurant", fetch = FetchType.LAZY)
-	    private List<Item> item;
-	 private String image;
-	
-	
+	  @ManyToMany(fetch = FetchType.LAZY)
+	    @JoinTable(
+	        name = "items_orders", 
+	        joinColumns = @JoinColumn(name = "item_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "order_id")
+	    )
+	    private List<Order> order;
+	  @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name="restaurant_id")
+	    private Restaurant restaurant;
+	  private String image;
 
-	public Restaurant() {
+	public Item() {
 		
 	}
 
@@ -69,12 +69,25 @@ public class Restaurant {
 		this.name = name;
 	}
 
-	public String getFoodType() {
-		return foodType;
+	public Integer getPrice() {
+		return price;
 	}
 
-	public void setFoodType(String foodType) {
-		this.foodType = foodType;
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	@PrePersist
 	public void setCreatedAt() {
@@ -89,20 +102,20 @@ public class Restaurant {
 		this.updatedAt = new Date();
 	}
 
-	public Address getAddress() {
-		return address;
+	public List<Order> getOrder() {
+		return order;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setOrder(List<Order> order) {
+		this.order = order;
 	}
 
-	public List<Item> getItem() {
-		return item;
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
 
-	public void setItem(List<Item> item) {
-		this.item = item;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	public String getImage() {
@@ -112,10 +125,5 @@ public class Restaurant {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 	
-
-	
-	
-	  
 }
