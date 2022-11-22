@@ -11,6 +11,8 @@
 <title>Registration</title>
 </head>
 <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
@@ -35,7 +37,7 @@
 	</div>
 
 
-	
+
 	<div class="wrapper">
 		<h2>Registration</h2>
 		<form:form action="/registration" method="post"
@@ -100,7 +102,7 @@
 			</div>
 		</h1>
 		<p class="note">
-			<a href="/">Home</a><br /> <a href="/">About Us</a><br />
+			<a href="/">Home</a><br /> <a href="/about">About Us</a><br />
 		</p>
 	</div>
 	<div class="wrapper">
@@ -115,20 +117,27 @@
 			</p>
 
 			<div class="input-box my-1">
-				<input type="text" id="username" name="username" placeholder="Enter your email"
-					required="required" />
+				<input type="text" id="username" name="username"
+					placeholder="Enter your username" required="required" />
 			</div>
 			<div class="input-box my-1">
 				<input type="password" id="password" name="password"
-					placeholder="Create password" required="required" />
+					placeholder="Enter Password" required="required" />
 			</div>
 			<div class="input-box button">
-				  <input type="submit" value="Login!"/>
+				<input type="submit" value="Login!" />
 			</div>
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <div>
-			<a href="/oauth2/ahorization/github">Login with GitHub</a><br />
-			<a href="/oauth2/authorization/facutebook">Login with FaceBook</a>
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+			<div>
+				<a class="btn btn-primary" style="background-color: #55acee;"
+					href="/oauth2/authorization/facebook" role="button"><i
+					class="fab fa-facebook me-2" ></i> Login with Facebook</a> 
+				<br />
+				<a class="btn btn-primary"
+					style="background-color: #55acee;"
+					href="/oauth2/ahorization/github" role="button"><i
+					class="fab fa-github me-2"></i> Login with Github</a>
 			</div>
 		</form>
 	</div>

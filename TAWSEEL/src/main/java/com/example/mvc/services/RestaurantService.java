@@ -64,7 +64,7 @@ public Item findItem(Long id) {
 		return null;
 	}
 }
-public Order creatrOrder(Order order) {
+public Order createOrder(Order order) {
 	return orderRepo.save(order);
 }
 public Address createAddress(Address address) {

@@ -51,7 +51,7 @@ public class WebSecurityConfig {
 
 			http.
 		        authorizeRequests()
-		            .antMatchers("/css/**", "/js/**", "/registration","/","/webjars/**").permitAll()
+		            .antMatchers("/css/**", "/js/**", "/registration","/","/webjars/**","/about").permitAll()
 		            .antMatchers("/admin/**").access("hasRole('ADMIN')")
 		            
 		            .antMatchers(staticResources).permitAll()
@@ -62,6 +62,9 @@ public class WebSecurityConfig {
 		            .loginPage("/login")
 		            .defaultSuccessUrl("/", true)
 		            .permitAll()
+		            .and()
+		            .oauth2Login()
+		            .loginPage("/registration")
 		            .and()
 		        .logout()
 		            .permitAll();

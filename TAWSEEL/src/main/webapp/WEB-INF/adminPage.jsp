@@ -97,7 +97,7 @@
 			<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>dashbord</title>
+<title>Admin Dashboard</title>
 </head>
 <!-- CSS link -->
 <link rel="stylesheet" href="/css/admin.css" />
@@ -106,9 +106,9 @@
  <!-- header -->
        <nav>
           <ul>
-              <li><a href=""> All Restaurants</a></li>
-              <li><a href=""> About Us</a></li>
-              <li> <a href=""> Log out</a></li>
+              <li><a href="/"> All Restaurants</a></li>
+              <li><a href="/about"> About Us</a></li>
+              <li> <a href="/logout"> Log out</a></li>
           </ul>
        </nav>
        
@@ -142,7 +142,6 @@
     <td><c:out value="${res.name}"/></td>
     <td><c:out value="${res.address.city}"/></td>
     <td><c:out value="${res.item.size()}"/> Items</td>
-    <td>NEEDS NEW PAGE!</td>
     <td>
     <form:form action="/resDelete/${res.id}" method="post">
     <input type="hidden" name="_method" value="delete">
@@ -180,7 +179,6 @@
    <%-- <c:forEach var="item" items="${order.item}">
     <h2><c:out value="${item.price}"/></h2>
     </c:forEach> --%> 
-    <td>NEEDS NEW PAGE!</td>
     <td>
     <form:form action="/orderDelete/${order.id}" method="post">
     <input type="hidden" name="_method" value="delete">
