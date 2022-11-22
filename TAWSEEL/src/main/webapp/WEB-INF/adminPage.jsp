@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true" %>
-    
+
 <%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,37 +38,7 @@
     <td>
     <form:form action="/resDelete/${res.id}" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Cancel Contract" />
-    </form:form>
-    </td>
-    </tr>
-    </c:forEach>
-    </tbody>
-    </table>
-     <h1>Table 2: Orders Table</h1>
-    <table>
-    <thead>
-    <tr>
-    <td>Order#:</td>
-    <td>Delivery Location:</td>
-    <td>Deliver to:</td>
-    <td>Total Items in order:</td>
-    <td>View Order details! (Items, Price)</td>
-    <td>Cancel Order</td> 
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="order" items="${allOrders}">
-    <tr>
-    <td><c:out value="${order.id}"/></td>
-    <td>City: <c:out value="${order.address.city}"/>
-    	Street: <c:out value="${order.address.street}"/>
-    	FloorNo <c:out value="${order.address.floor}"/>
-    	Apartment: <c:out value="${order.address.departmentNo}"/>
-    </td>
-    <td>Customer Name:<c:out value="${order.customer.username}"/>, Mobile <c:out value="${order.customer.number}"/></td>
-    <td><c:out value="${order.item.size()}"/> Items</td>
-    <c:set var="items" value="${order.item}"></c:set>
+    < value="${order.item}"></c:set>
     
    <c:forEach var="item" items="${order.item}">
     <h2><c:out value="${item.price}"/></h2>

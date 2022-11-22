@@ -25,6 +25,7 @@ import com.example.mvc.models.Item;
 import com.example.mvc.models.Order;
 import com.example.mvc.models.Restaurant;
 import com.example.mvc.services.CustomerService;
+import com.example.mvc.services.EmailSenderService;
 import com.example.mvc.services.RestaurantService;
 import com.example.mvc.validator.UserValidator;
 
@@ -36,6 +37,8 @@ public class MainController {
 	UserValidator userValidator;
 	@Autowired
 	private RestaurantService resServ;
+	@Autowired
+    private EmailSenderService senderService;
 
 	// Render - Register Page
 	@GetMapping("/registration")
@@ -53,11 +56,14 @@ public class MainController {
 	@PostMapping("/registration")
 	public String registration(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model,
 			HttpSession session) {
+		String email= customer.getEmail();
 		userValidator.validate(customer, result);
 		if (result.hasErrors()) {
 			return "registerPage.jsp";
 		}
-
+		senderService.sendSimpleEmail(email,
+				"Registartion is completed!",
+				"Thank you for dealing with Tawseel, your registartion is completed.");
 		customerServ.saveWithUserRole(customer);
 //	        customerServ.saveUserWithAdminRole(customer);
 
@@ -216,5 +222,21 @@ public class MainController {
 	@GetMapping("/about")
 	public String aboutUs() {
 		return "about.jsp";
+	}
+	@GetMapping("/send/email/{id}")
+    public String email(@PathVariable("id")Long id,Model model,HttpSession session,Principal principal) {
+		String username = principal.getName();
+		Customer customer=customerServ.findCustomerbyname(username);
+      
+        model.addAttribute("tutor", customer);
+        session.setAttribute("mail", customer.getId());
+        return "Email.jsp";
+    }
+	//..................................................................
+	@PostMapping("/email/{mail}")
+	public String sendEmail(@RequestParam("subject") String subject,@RequestParam("message") String message,@PathVariable("mail")String mail,HttpSession session) {
+		senderService.sendSimpleEmail(mail,subject,message);
+		Long is =(Long) session.getAttribute("mail");
+		return "redirect:/send/email/"+is;
 	}
 }
