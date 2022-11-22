@@ -126,7 +126,10 @@
 				  <input type="submit" value="Login!"/>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        
+        <div>
+			<a href="/oauth2/ahorization/github">Login with GitHub</a><br />
+			<a href="/oauth2/authorization/facutebook">Login with FaceBook</a>
+			</div>
 		</form>
 	</div>
 	<script src="/webjars/jquery/jquery.min.js"></script>

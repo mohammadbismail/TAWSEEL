@@ -44,13 +44,13 @@ public class ApiController {
 		  
 	  }
 	}
-@GetMapping("/restaurant/{id}")
-public List<Item> res(@PathVariable("id") Long id,HttpSession sisson,Model model) {
-	Restaurant restaurant=resServ.findRestaurant(id);
-	
-	return restaurant.getItem();
-	
-}
+//@GetMapping("/restaurant/{id}")
+//public List<Item> res(@PathVariable("id") Long id,HttpSession sisson,Model model) {
+//	Restaurant restaurant=resServ.findRestaurant(id);
+//	
+//	return restaurant.getItem();
+//	
+//}
 @GetMapping("/order/{id}")
 public Order order(@PathVariable("id") Long id,HttpSession sisson,Model model) {
 	Customer customor=CustomerServ.findCustomerById(id);

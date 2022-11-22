@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.example.mvc.models.Customer;
-import com.example.mvc.models.CustomerLogin;
+
 import com.example.mvc.repositories.CustomerRepository;
 import com.example.mvc.repositories.RoleRepository;
 
@@ -54,8 +54,11 @@ public class CustomerService {
 	}
 	public Customer findCustomerbyname(String user) {
 		Customer customer = customerRepo.findByUsername(user);
-		
-			return customer;
+			if(customer!=null) {
+			return customer;}
+			else {
+				return null;
+			}
 		
 	}
 	// Registration service

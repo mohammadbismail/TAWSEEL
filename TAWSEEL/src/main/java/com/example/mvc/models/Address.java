@@ -26,12 +26,12 @@ public class Address {
 	private Long id;
 	
 	@NotNull(message="City can't be null")
-	@Size(min=6,max=100,message="City has to be 6 characters minimum")
+	@Size(min=3,max=100,message="City has to be 3 characters minimum")
 	private String city;
-	@Size(min=6,max=100,message="street has to be 6 characters minimum")
+	@Size(min=3,max=100,message="street has to be 3 characters minimum")
 	@NotNull(message="street can't be empty")
 	private String street;
-	@Size(min=6,max=100,message="building has to be 6 characters minimum")
+	@Size(min=3,max=100,message="building has to be 3 characters minimum")
 	@NotNull(message="building can't be empty")
 	private String building;
 	@Min(value=1,message="please enter a valid number")
