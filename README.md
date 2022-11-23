@@ -51,7 +51,33 @@ Public IP / Domain - 44.201.199.59
  # ER Diagram
  ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
  
+ ```
+ 
+ # Samples
+ 
+ 1. Dashboard Main Page 
+
+![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+ 
+ 2. Login Page 
+ 
+ ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+
+ 
+ 3. Restaurants Page
+ 
+ ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+
+ 
+ 4. Order Page 
+ 
+ ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+
+ 5. Admin Dashboard
+ 
  
  # Contributors
 &nbsp;&nbsp;&nbsp;<a href="https://github.com/mohammadbismail">Mohammad Basim Ismail</a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/thabet-toma">Thabet Toma</a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/ImasZubaidia">Imas Zubaidia</a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/aseeladel1">Aseel Adel</a>
 <p align="center">
+ 
+ 
