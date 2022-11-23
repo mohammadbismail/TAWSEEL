@@ -56,7 +56,7 @@ Public IP / Domain - 44.201.199.59
  
  1. Dashboard Main Page 
 
-![erd-tawseel]([https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png](https://i.imgur.com/oUFFdK9.jpeg))
+![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
  
  2. Login Page 
  
