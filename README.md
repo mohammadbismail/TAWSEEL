@@ -51,7 +51,6 @@ Public IP / Domain - 44.201.199.59
  # ER Diagram
  ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
  
- ```
  
  # Samples
  
