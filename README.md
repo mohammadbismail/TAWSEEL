@@ -60,7 +60,7 @@ Public IP / Domain - 44.201.199.59
  
  2. Login Page 
  
- ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+ ![erd-tawseel](https://i.imgur.com/HF1W4tV.jpeg)
 
  
  3. Restaurants Page
