@@ -61,20 +61,14 @@ Public IP / Domain - 44.201.199.59
  2. Login Page 
  
  ![erd-tawseel](https://i.imgur.com/HF1W4tV.jpeg)
+ 
+ 4. About Us Page
+ 
+ ![erd-tawseel](https://i.imgur.com/VmBOxGC.jpeg)
 
+ 4. Admin Dashboard
  
- 3. Restaurants Page
- 
- ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
-
- 
- 4. Order Page 
- 
- ![erd-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
-
- 5. Admin Dashboard
- 
-  ![admin-tawseel](https://user-images.githubusercontent.com/110999043/203430857-168739fb-7418-4660-8db8-10f263069012.png)
+  ![admin-tawseel](https://i.imgur.com/lKfWGPY.png)
 
  
  # Contributors
