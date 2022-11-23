@@ -1,9 +1,10 @@
+# Public IP / Domain - 44.201.199.59
+
 
 <p align="center">
  <img style="width:25%;" src="https://user-images.githubusercontent.com/110999043/203426158-38b5df47-e94f-42d5-9abd-d1e67eea6bbe.png"/>
 <p align="center">
 
-Public IP / Domain - 44.201.199.59
  
 <li>An online Food Delivery Website having backend REST-API, made in Java Spring Boot with MySQL database.
 <li> This project is developed by team of 4 Full-Stack Developers during Java Week Project in Axsos Academy.
