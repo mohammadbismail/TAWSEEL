@@ -1,6 +1,3 @@
-# Public IP / Domain - 44.212.5.0
-
-
 <p align="center">
  <img style="width:25%;" src="https://user-images.githubusercontent.com/110999043/203426158-38b5df47-e94f-42d5-9abd-d1e67eea6bbe.png"/>
 <p align="center">
